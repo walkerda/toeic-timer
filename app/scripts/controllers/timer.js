@@ -8,10 +8,6 @@
  * Controller of the toeicTimerApp
  */
 angular.module('toeicTimerApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'Angular',
-      'Karma'
-    ];
-  });
+  .controller('TimerCtrl', function ($scope) {
+    $scope.awesomeThings = 'The timer goes here'
+    });

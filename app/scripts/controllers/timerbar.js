@@ -1,4 +1,4 @@
 
-angular.module('toeicTimerApp').controller('TimerCtrl', function($scope) {
+angular.module('toeicTimerApp').controller('TimerbarCtrl', function($scope) {
     $scope.message = "Timerbar goes here!";
-})
+});

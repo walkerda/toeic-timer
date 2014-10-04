@@ -1,94 +1,50 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js"  ng-app="toeicTimerApp">
   <head>
     <meta charset="utf-8">
     <title>TOEIC TIMER</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
+
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
   </head>
-  <body ng-app="toeicTimerApp">
+  <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
 
-      <!--<div ng-include="'views/timerbar.html'" ng-controller="TimerCtrl"></div>-->
+      <div ng-include="'views/headerGroup.html'" ng-controller="HeaderGroupCtrl"></div>
 
-      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+      <div ng-include="'views/timer.html'" ng-controller="TimerCtrl"></div>
 
-      <footer>
-          <nav class="navbar navbar-inverse navbar-fixed-bottom small-screens" role="navigation">
+      <div ng-include="'views/navbar.html'" ng-controller="NavbarCtrl"></div>
 
-              <div class="collapse navbar-collapse" id="collapsed-navbar">
-                  <ul class="nav navbar-nav">
-                      <li>MENU</li>
-                      <li><a href="#">PART 5</a></li>
-                      <li><a href="#">PART 6</a></li>
-                      <li><a href="#">PART 7</a></li>
-                      <li><a href="#">ALL PARTS</a></li>
-                      <li><a href="#">HELP</a></li>
-                  </ul>
-              </div>
 
-              <div class="container-fluid">
-                  <div class="navbar-header">
 
-                      <ul>
-                          <li>
-                              <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
-                                      data-target="#collapsed-navbar">
-                                  <span class="sr-only"></span>
-                                  <span class="icon-bar"></span>
-                                  <span class="icon-bar"></span>
-                                  <span class="icon-bar"></span>
-                              </button>
-                          </li>
-                          <li>
-                              <button type="button" class="navbar-toggle timer-controls pull-right">
-                                  <span class="glyphicon glyphicon-play"></span>
-                              </button>
-                          </li>
-                          <li>
-                              <button type="button" class="navbar-toggle timer-controls pull-right">
-                                  <span class="glyphicon glyphicon-repeat"></span>
-                              </button>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </nav>
-
-      </footer>
-
-    <!-- build:js(.) scripts/oldieshim.js -->
+    <!-- SHIMS -->
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <![endif]-->
-    <!-- endbuild -->
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
+    <!-- SCRIPTS -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
+    <!-- these scripts are included to allow binding to happen -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/headergroup.js"></script>
+    <script src="scripts/controllers/timer.js"></script>
+    <script src="scripts/controllers/questionbox.js"></script>
+    <script src="scripts/controllers/timerbar.js"></script>
+    <script src="scripts/controllers/navbar.js"></script>
+
 </body>
 </html>

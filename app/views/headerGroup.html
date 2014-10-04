@@ -1,0 +1,8 @@
+<!-- this generates the header information that includes the question numbers and the timerbar -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4 col-sm-2 col-md-2 question-box" ng-include="'views/questionbox.html'"
+             ng-controller="QuestionBoxCtrl"></div>
+        <div class="col-xs-8 col-sm-10 col-md-10 timerbar" ng-include="'views/timerbar.html'" ng-controller="TimerbarCtrl"></div>
+    </div>
+</div>
