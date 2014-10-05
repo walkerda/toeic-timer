@@ -1,3 +1,13 @@
 <div class="row timer-location">
-  <p>{{ awesomeThings }}</p>
+    <h1>{{ timerText }}</h1>
+    <div ng-controller="PartsCtrl">
+        <table>
+            <tr ng-repeat="part in parts.selections | filter:search">
+                <td>{{part.name}}</td>
+                <td>{{part.questionNumbers[0]}}</td>
+                <td>{{part.timerDuration | date : 'mm:ss'}}</td>
+                <td>{{part.questionDuration | date : 'ss:sss'}}</td>
+            </tr>
+        </table>
+    </div>
 </div>

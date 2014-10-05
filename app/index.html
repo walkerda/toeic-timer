@@ -18,11 +18,15 @@
 
     <!-- Add your site or application content here -->
 
+      <!--<div ui-view></div>-->
+
       <div ng-include="'views/headerGroup.html'" ng-controller="HeaderGroupCtrl"></div>
 
       <div ng-include="'views/timer.html'" ng-controller="TimerCtrl"></div>
 
       <div ng-include="'views/navbar.html'" ng-controller="NavbarCtrl"></div>
+
+
 
 
 
@@ -37,6 +41,7 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!--<script src="bower_components/angular-ui-router/angular-ui-router.js"></script>-->
 
     <!-- these scripts are included to allow binding to happen -->
     <script src="scripts/app.js"></script>

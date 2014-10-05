@@ -1,4 +1,4 @@
 <!-- this provides the structure for the question box and it's numbers -->
-<div>
-    <p>{{ number }}</p>
+<div ng-controller="PartsCtrl">
+    <div ng-repeat="part in parts.selections">{{ part.questionNumbers[0] }}</div>
 </div>
