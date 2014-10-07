@@ -10,7 +10,4 @@
 angular.module('toeicTimerApp')
   .controller('TimerCtrl', function ($scope) {
         $scope.timerText = "00:00";
-        if (parts.name === "part5") {
-            $scope.timerText = parts.timerDuration;
-        }
   });

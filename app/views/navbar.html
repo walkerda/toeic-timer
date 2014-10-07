@@ -4,13 +4,13 @@
 <div class="col-xs-3">
     <nav class="navbar navbar-inverse navbar-fixed-bottom small-screens" role="navigation">
 
-        <div class="collapse navbar-collapse" id="collapsed-navbar">
+        <div class="collapse navbar-collapse" id="collapsed-navbar" ng-controller="PartsCtrl as part">
             <ul class="nav navbar-nav">
                 <li>MENU</li>
-                <li><a ui-sref="part5">PART 5</a></li>
-                <li><a ui-sref="part6">PART 6</a></li>
-                <li><a ui-sref="part7">PART 7</a></li>
-                <li><a ui-sref="allparts">ALL PARTS</a></li>
+                <li ng-class="{ active: part.isSet(1) }"><a href ng-click="part.setPart(1)">PART 5</a></li>
+                <li><a href ng-click="part.setPart(2)">PART 6</a></li>
+                <li><a href ng-click="part.setPart(3)">PART 7</a></li>
+                <li><a href ng-click="part.setPart(4)">ALL PARTS</a></li>
                 <li><a ui-sref="help">HELP</a></li>
             </ul>
         </div>

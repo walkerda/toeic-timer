@@ -1,13 +1,25 @@
-<div class="row timer-location">
-    <h1>{{ timerText }}</h1>
-    <div ng-controller="PartsCtrl">
-        <table>
-            <tr ng-repeat="part in parts.selections | filter:search">
-                <td>{{part.name}}</td>
-                <td>{{part.questionNumbers[0]}}</td>
-                <td>{{part.timerDuration | date : 'mm:ss'}}</td>
-                <td>{{part.questionDuration | date : 'ss:sss'}}</td>
-            </tr>
-        </table>
+<div ng-controller="PartsCtrl" class="row timer-location">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <h1 style="font-size: 50px; text-align: center">{{ parts[0].timerDuration | date : 'mm:ss' }}</h1>
+    </div>
+
+    <div>
+        <strong>{{ parts[0].name }}</strong>
+        <strong>{{ parts[0].questionNumbers[0]}}</strong>
+        <strong>{{ parts[0].timerDuration | date : 'mm:ss' }}</strong>
+        <strong>{{ parts[0].questionDuration | date : 'ss:ss'}}</strong>
+    </div>
+
+    <div>
+        <p>Your active menu item: <span>{{states.activePart}}</span>
+
+        </p>
+        <div>Change the active menu item:
+            <input ng-model="states.activePart" />
+        </div>
+        <ul ng-repeat="part in parts">
+            <li ng-class="{'active': part.name === states.activePart}"
+                ng-click="states.activePart = part.name">{{part.name}}</li>
+        </ul>
     </div>
 </div>
