@@ -1,25 +1,21 @@
-<div ng-controller="PartsCtrl" class="row timer-location">
+<!-- sample code to test if bindings are working correctly-->
+<div class="row timer-location" ng-controller="PartsCtrl">
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <h1 style="font-size: 50px; text-align: center">{{ parts[0].timerDuration | date : 'mm:ss' }}</h1>
+        <strong style="font-size: 50px">{{ activePart.timerDuration | date: 'mm:ss' }}</strong>
     </div>
-
-    <div>
-        <strong>{{ parts[0].name }}</strong>
-        <strong>{{ parts[0].questionNumbers[0]}}</strong>
-        <strong>{{ parts[0].timerDuration | date : 'mm:ss' }}</strong>
-        <strong>{{ parts[0].questionDuration | date : 'ss:ss'}}</strong>
+    <div class="col-xs-12 col-sm-12">
+        <p>{{ activePart.name | uppercase }}</p>
     </div>
-
+    <!-- using timer directive to generate countdown timer based on activePart timer duration -->
     <div>
-        <p>Your active menu item: <span>{{states.activePart}}</span>
-
-        </p>
-        <div>Change the active menu item:
-            <input ng-model="states.activePart" />
-        </div>
-        <ul ng-repeat="part in parts">
-            <li ng-class="{'active': part.name === states.activePart}"
-                ng-click="states.activePart = part.name">{{part.name}}</li>
-        </ul>
+        <h3>Example Timer 1: <timer autostart="false"/> </h3>
+        <h3>Example Timer 2:<timer autostart="false" interval="1000">  {{hhours}} hours, {{mminutes}}
+                                                                     minutes, {{sseconds}} seconds.</timer></h3>
+        <h3>
+            <timer style="font-size: 50px" autostart="false" countdown="PartsService.activePart.timerDuration"
+                   max-time-unit="'minute'" interval="1000"> {{mminutes}}:{{sseconds}}</timer></h3>
+        <br/>
+        <button type="button" class="btn btn-primary" ng-click="startTimer()" ng-disabled="timerRunning">START</button>
+        <button type="button" class="btn btn-danger" ng-click="stopTimer()" ng-disabled="!timerRunning">STOP</button>
     </div>
 </div>
