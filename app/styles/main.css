@@ -22,14 +22,38 @@ header {
     border: 2px solid black;
     height: 50px;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /*padding: 10px;*/
     color: #000000;
+}
+
+.question-box-number {
+    font-size: 40px;
+    text-align: center;
+    margin: -5px;
 }
 
 .timerbar {
     height: 50px;
 }
+
+#navbar-menu-overlay {
+    font-size: 20px;
+    color: white;
+    background-color: dimgrey;
+    text-align: center;
+    margin-top: -8px;
+}
+
+.timer-countdown {
+    font-size: 75px;
+}
+
+.timer-location {
+    text-align: center;
+    margin: 25% 0 25% 0;
+}
+
+
 
 /* Custom page footer */
 .footer {
@@ -59,9 +83,9 @@ header {
 }
 
 /* Supporting marketing content */
-.timer-location {
-  margin: 40px 0;
-}
+/*.timer-location {*/
+  /*margin: 40px 0;*/
+/*}*/
 .timer-location p + h4 {
   margin-top: 28px;
 }
@@ -85,6 +109,3 @@ header {
   }
 }
 
-.red {
-    color: red;
-}

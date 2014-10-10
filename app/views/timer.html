@@ -1,21 +1,38 @@
 <!-- sample code to test if bindings are working correctly-->
-<div class="row timer-location" ng-controller="PartsCtrl">
+<div class="row timer-location">
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <strong style="font-size: 50px">{{ activePart.timerDuration | date: 'mm:ss' }}</strong>
+        <div class="timer-countdown">
+            <strong>{{ activePart.timerDuration | date: 'mm:ss' }}</strong>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <em>{{ activePart.name | uppercase }}</em>
+        </div>
     </div>
-    <div class="col-xs-12 col-sm-12">
-        <p>{{ activePart.name | uppercase }}</p>
-    </div>
-    <!-- using timer directive to generate countdown timer based on activePart timer duration -->
+
+
+    <br/>
+    <br/>
+
     <div>
-        <h3>Example Timer 1: <timer autostart="false"/> </h3>
-        <h3>Example Timer 2:<timer autostart="false" interval="1000">  {{hhours}} hours, {{mminutes}}
-                                                                     minutes, {{sseconds}} seconds.</timer></h3>
         <h3>
-            <timer style="font-size: 50px" autostart="false" countdown="PartsService.activePart.timerDuration"
-                   max-time-unit="'minute'" interval="1000"> {{mminutes}}:{{sseconds}}</timer></h3>
-        <br/>
-        <button type="button" class="btn btn-primary" ng-click="startTimer()" ng-disabled="timerRunning">START</button>
-        <button type="button" class="btn btn-danger" ng-click="stopTimer()" ng-disabled="!timerRunning">STOP</button>
+            <timer interval="1000" autostart="false" countdown="activePart.timerDuration">
+                {{ hhours }}:{{ mminutes }}:{{ sseconds }}</timer>
+        </h3>
+        <button type="button" class="btn btn-primary" ng-click="startTimer()">START</button>
+        <button type="button" class="btn btn-danger" ng-click="stopTimer()">STOP</button>
+        <button type="button" class="btn btn-danger" ng-click="resetTimer()">RESET</button>
     </div>
+    <br/>
+    <div>
+        <timer interval="1000" autostart="false" countdown="900">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active my-reverse-class" aria-valuemax="0"
+                     aria-valuemin="60" aria-valuenow="{{ seconds }}" role="progressbar"  style="width: {{seconds}}%;">
+                    <span class="sr-only">{{ seconds }}</span>QUESTION TIME
+                </div>
+            </div>
+        </timer>
+    </div>
+
 </div>
+

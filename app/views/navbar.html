@@ -6,7 +6,7 @@
 
         <div class="collapse navbar-collapse" id="collapsed-navbar">
             <ul class="nav navbar-nav">
-                <li>MENU {{ activePart.name }}</li>
+                <li id="navbar-menu-overlay">MENU</li>
                 <li ng-class="{ active: isSet(1) }"><a href ng-click="setPart(1)">PART 5</a></li>
                 <li ng-class="{ active: isSet(2) }"><a href ng-click="setPart(2)">PART 6</a></li>
                 <li ng-class="{ active: isSet(3) }"><a href ng-click="setPart(3)">PART 7</a></li>
@@ -29,13 +29,13 @@
             </div>
 
             <div class="col-xs-4 col-sm-4 col-md-4">
-                <button type="button" class="navbar-toggle timer-controls pull-right">
+                <button type="button" class="navbar-toggle timer-controls pull-right" ng-click="startTimer()" ng-disabled="timerRunning">
                     <span class="glyphicon glyphicon-play"></span>
                 </button>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-md-4">
-                <button type="button" class="navbar-toggle timer-controls pull-right">
+                <button type="button" class="navbar-toggle timer-controls pull-right" ng-click="stopTimer()" ng-disabled="!timerRunning">
                     <span class="glyphicon glyphicon-repeat"></span>
                 </button>
             </div>
