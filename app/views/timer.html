@@ -28,13 +28,22 @@
     <div>
         <timer interval="1000" autostart="false" countdown="activePart.questionDuration">
             <div class="progress">
-                <div class="progress-bar progress-bar-striped active my-reverse-class" aria-valuemax="0"
-                     aria-valuemin="60" aria-valuenow="{{ seconds }}" role="progressbar"  style="width: {{seconds}}%;">
-                    <span class="sr-only">{{ seconds }}</span>QUESTION TIME
+                <div class="progress-bar progress-bar-striped active" aria-valuemax="{{ activePart.questionDuration }}"
+                     aria-valuemin="0" aria-valuenow="{{ activePart.questionDuration }}" role="progressbar"  style="width: {{seconds}}%;">
+                    <span class="sr-only">{{ seconds }}</span>{{ seconds }}
                 </div>
             </div>
         </timer>
     </div>
+    <br/>
+    <timer interval="1000" autostart="false" countdown="activePart.questionDuration">
+        <div class="progress">
+            <div class="progress-bar progress-bar-danger progress-bar-striped active"
+                 aria-valuenow="activePart.questionDuration" style="width: {{seconds}}%;">
+                <span class="sr-only">Amount of time for each question.</span>
+            </div>
+        </div>
+    </timer>
     <br/>
     <div>
         <timer interval="1000" autostart="false" countdown="100">{{ sseconds }}</timer>

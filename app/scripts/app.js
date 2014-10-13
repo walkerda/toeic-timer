@@ -158,7 +158,7 @@ function TimerCtrl($scope) {
 angular
     .module('toeicTimerApp', ['timer'])
     .controller('PartsCtrl', PartsCtrl)
-    .controller('TimerCtrl', TimerCtrl, PartsCtrl);
+    .controller('TimerCtrl', TimerCtrl);
 
 
 
