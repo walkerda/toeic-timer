@@ -1,4 +1,11 @@
 <!-- this provides the structure for the timerbar-->
-<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-     style="width: 100%" style="height: 100%">
+<div>
+    <timer interval="1000" autostart="false" countdown="900">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active my-reverse-class" aria-valuemax="0"
+                 aria-valuemin="60" aria-valuenow="{{ seconds }}" role="progressbar"  style="width: {{ seconds }}%;">
+                <span class="sr-only">{{ seconds }}</span>QUESTION TIME
+            </div>
+        </div>
+    </timer>
 </div>
