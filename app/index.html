@@ -11,23 +11,20 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body ng-controller="PartsCtrl">
+  <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
 
-
-      <div ng-include="'views/headerGroup.html'" ng-controller="TimerCtrl"></div>
-
-      <div ng-include="'views/timer.html'" ng-controller="TimerCtrl"></div>
-
-      <div ng-include="'views/navbar.html'" ></div>
-
-
-
-
+      <div ng-controller="PartsCtrl">
+          <div ng-controller="TimerCtrl">
+              <div ng-include="'views/headerGroup.html'"></div>
+              <div ng-include="'views/timer.html'"></div>
+              <div ng-include="'views/navbar.html'"></div>
+          </div>
+      </div>
 
     <!-- SHIMS -->
     <!--[if lt IE 9]>
@@ -45,11 +42,7 @@
 
     <!-- these scripts are included to allow binding to happen -->
     <script src="scripts/app.js"></script>
-    <!--<script src="scripts/controllers/headergroup.js"></script>-->
-    <!--<script src="scripts/controllers/timer.js"></script>-->
-    <!--<script src="scripts/controllers/questionbox.js"></script>-->
-    <!--<script src="scripts/controllers/timerbar.js"></script>-->
-    <!--<script src="scripts/controllers/navbar.js"></script>-->
+
 
 </body>
 </html>

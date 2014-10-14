@@ -60,6 +60,25 @@ header {
     padding-right: 4px;
 }
 
+.btn {
+    height: 70px;
+}
+
+.navbar-header {
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+.glyphicon-play, .glyphicon-pause, .glyphicon-repeat {
+    font-size: 30px;
+}
+
+.navbar-toggle .icon-bar {
+    margin: auto;
+    height: 5px;
+    width: 32px;
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;
