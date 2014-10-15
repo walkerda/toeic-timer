@@ -1,9 +1,10 @@
 <!-- structure for the timerbar-->
 
-<timer interval="1000" autostart="false" countdown="activePart.questionDuration">
+<timer interval="1000" autostart="false" countdown="questionTimer">
     <div class="progress">
         <div class="progress-bar progress-bar-danger progress-bar-striped active"
-             aria-valuenow="activePart.questionDuration" style="width: {{ activePart.questionDuration }}%;">
+             aria-valuenow="activePart.questionDuration" style="width: {{ seconds }}%;">
+            {{ seconds }}
             <span class="sr-only">Amount of time for each question.</span>
         </div>
     </div>
