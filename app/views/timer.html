@@ -1,17 +1,21 @@
 <!-- structure for the timer -->
 
 <div class="row timer-location">
+
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="timer-countdown">
-            <timer ng-show="timerRunning" interval="1000" autostart="false" countdown="activeTimer" max-time-unit="'minute'">
+            <timer ng-show="timerRunning || timerPaused" interval="1000" autostart="false" countdown="activeTimer"
+                    max-time-unit="'minute'">
                 {{ mminutes }}:{{ sseconds }}
             </timer>
-            <div ng-show="!timerRunning">{{ activeTimer | timerTime }}</div>
-        </div>
-        <div class="col-xs-12 col-sm-12 activePart-title">
-            <em>{{ activePart.name | uppercase }}</em>
+            <div ng-show="!timerRunning && !timerPaused">{{ activeTimer | timerTime }}</div>
         </div>
     </div>
+
+    <div class="col-xs-12 col-sm-12 activePart-title">
+        <em>{{ activePart.name | uppercase }}</em>
+    </div>
+
 </div>
 
 

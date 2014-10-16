@@ -20,20 +20,20 @@ header {
 
 .question-box {
     border: 2px solid black;
-    height: 50px;
+    height: 90px;
     text-align: center;
     /*padding: 10px;*/
     color: #000000;
 }
 
 .question-box-number {
-    font-size: 40px;
+    font-size: 50px;
     text-align: center;
     margin: -5px;
 }
 
 .timerbar {
-    height: 50px;
+    height: 90px;
 }
 
 #navbar-menu-overlay {
@@ -45,7 +45,7 @@ header {
 }
 
 .timer-countdown {
-    font-size: 75px;
+    font-size: 100px;
 }
 
 .timer-location {
@@ -54,7 +54,7 @@ header {
 }
 
 .progress {
-    height: 50px;
+    height: 90px;
     border-radius: 0;
     padding-left: 0;
     padding-right: 4px;
@@ -70,7 +70,7 @@ header {
 }
 
 .glyphicon-play, .glyphicon-pause, .glyphicon-repeat {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .navbar-toggle .icon-bar {

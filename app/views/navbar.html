@@ -20,7 +20,7 @@
                 <div class="btn-group">
                     <button type="button" class="btn navbar-btn navbar-toggle collapsed"
                             data-toggle="collapse"
-                            data-target="#collapsed-navbar" ng-click="stopTimer();">
+                            data-target="#collapsed-navbar" ng-click="resetTimer()">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -30,17 +30,13 @@
 
                 <div class="btn-group">
                     <!-- example code for how to use ng-class -->
-                    <!--<button type="button" class="btn navbar-btn"-->
-                            <!--ng-click="startTimer()">-->
+                    <!--<button type="button" class="btn navbar-btn">-->
                         <!--<span class="glyphicon" ng-class="{'glyphicon-pause': timerRunning, 'glyphicon-play': !timerRunning}"></span>-->
                     <!--</button>-->
-                    <button type="button" class="btn navbar-btn"
-                            ng-click="startTimer()" ng-show="!timerRunning">
-                        <span class="glyphicon glyphicon-play"></span>
-                    </button>
-                    <button type="button" class="btn navbar-btn"
-                            ng-click="stopTimer()" ng-show="timerRunning">
-                        <span class="glyphicon glyphicon-pause"></span>
+
+                    <button type="button" class="btn navbar-btn">
+                        <span ng-show="!timerRunning" class="glyphicon glyphicon-play" ng-click="startTimer()"></span>
+                        <span ng-show="timerRunning" class="glyphicon glyphicon-pause" ng-click="stopTimer()"></span>
                     </button>
                 </div>
 
