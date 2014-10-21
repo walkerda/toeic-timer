@@ -11,6 +11,7 @@
 
 // PartsCtrl function that's passed into the PartsCtrl
 function PartsCtrl($scope) {
+    // provides all the details for each part
     $scope.parts = [
         {
             name: 'landing',
@@ -47,43 +48,25 @@ function PartsCtrl($scope) {
                 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193,
                 194, 195, 196, 197, 198, 199, 200],
             timerDuration: 75 * 60,
-            questionDuration: 76
+            questionDuration: 75
         }
     ];
 
     $scope.activePart = $scope.parts[0];
-    $scope.activeTimer = $scope.parts[0].timerDuration;
-    $scope.activeQuestion = $scope.parts[0].questionNumbers[0];
-    $scope.questionTimer = $scope.parts[0].questionDuration;
+    $scope.timerRunning = false;
+    $scope.timerPaused = false;
 
+    // sets the active part and resets the timer
     $scope.setPart = function(index) {
         $scope.activePart = $scope.parts[index];
-        $scope.activeTimer = $scope.parts[index].timerDuration;
-        $scope.activeQuestion = $scope.parts[index].questionNumbers[0];
-        $scope.questionTimer = $scope.parts[index].questionDuration;
+        $scope.resetTimer();
     };
 
     $scope.isSet = function(index) {
         return $scope.activePart === $scope.parts[index];
     };
 
-    // trying to figure out how to switch the question numbers...not sure if a function is the way to go
-    // not sure where I would call it either
-    // still a work-in-progress
-    $scope.nextQuestionNumber = function(index) {
-        if ($scope.questionTimer === 0) {
-            $scope.activeQuestion = $scope.parts[index].questionNumbers[index] + 1;
-        }
-    };
-
-}
-
-
-// TimerCtrl function that's passed into the TimerCtrl
-function TimerCtrl($scope) {
-    $scope.timerRunning = false;
-    $scope.timerPaused = false;
-
+    // timer controls from angular-timer directive
     $scope.startTimer = function (){
         $scope.$broadcast('timer-start');
         $scope.timerRunning = true;
@@ -102,22 +85,47 @@ function TimerCtrl($scope) {
         $scope.timerPaused = false;
     };
 
-    $scope.timerResume = function (){
-        $scope.$broadcast('timer-resume');
+    // switches between start and stop timer functions if
+    // the timer is running. This allows the correct
+    // glyphicon (play or pause) to appear with the
+    // correct functionality
+    $scope.toggleTimer = function() {
+        if ($scope.timerRunning) {
+            $scope.stopTimer();
+        }
+        else {
+            $scope.startTimer();
+        }
+
+        //($scope.timerRunning) ? $scope.stopTimer() : $scope.startTimer();
     };
 
-    $scope.clearTimer = function (){
-        $scope.$broadcast('timer-clear');
-        $scope.timerRunning = false;
-    }
+    // stops the timer if it's running before allowing a selection
+    // closes the menu if the User clicks outside the menu
+    $scope.toggleMenu = function() {
+        if ($scope.timerRunning) {
+            $scope.stopTimer();
+        }
 
+        $(document).on('click',function(){
+            $('.collapse').collapse('hide');
+        })
+    };
+
+    // allows the question numbers to change after
+    // the questionDuration for a question reaches zero(0) seconds
+    $scope.goToNextQuestionNumber = function(index) {
+        $scope.currentQuestionNumber = $scope.parts[index].questionNumbers[index];
+    };
 }
 
+
+// provides the ability to filter a value into a timer interval
 function timerTime() {
     return function(time) {
 
         var tick = time;
-        var mins = Math.floor(tick/60);
+        var mins = Math.floor(tick / 60);
         var secs = tick % 60;
         var tock = (mins < 10 ? "0" : "" ) + mins + ":" + (secs < 10 ? "0" : "" ) + secs;
 
@@ -129,7 +137,6 @@ function timerTime() {
 angular
     .module('toeicTimerApp', ['timer'])
     .controller('PartsCtrl', PartsCtrl)
-    .controller('TimerCtrl', TimerCtrl)
     .filter('timerTime', timerTime);
 
 

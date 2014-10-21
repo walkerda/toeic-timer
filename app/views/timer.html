@@ -4,16 +4,18 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="timer-countdown">
-            <timer ng-show="timerRunning || timerPaused" interval="1000" autostart="false" countdown="activeTimer"
+            <timer ng-show="timerRunning || timerPaused" interval="1000" autostart="false"
+                   countdown="activePart.timerDuration"
                     max-time-unit="'minute'">
                 {{ mminutes }}:{{ sseconds }}
             </timer>
-            <div ng-show="!timerRunning && !timerPaused">{{ activeTimer | timerTime }}</div>
+            <div ng-show="!timerRunning && !timerPaused">{{ activePart.timerDuration | timerTime }}</div>
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 activePart-title">
         <em>{{ activePart.name | uppercase }}</em>
+        <p>{{ activePart.currentQuestionNumber }}</p>
     </div>
 
 </div>

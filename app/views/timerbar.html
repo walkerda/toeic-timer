@@ -1,10 +1,19 @@
 <!-- structure for the timerbar-->
 
-<timer interval="1000" autostart="false" countdown="questionTimer" max-time-unit="'second'">
+<div ng-show="!timerRunning && !timerPaused" class="progress">
+    <div class="progress-bar progress-bar" style="width: 100%">
+        <span class="sr-only">Shows timerbar when timer not running</span>
+    </div>
+
+</div>
+
+<timer ng-show="timerRunning || timerPaused" finish-callback="goToNextQuestion()" interval="1000" autostart="false"
+       countdown="activePart.questionDuration"
+       max-time-unit="'second'">
     <div class="progress">
         <div class="progress-bar progress-bar"
              aria-valuemin="0" aria-valuemax="questionTimer" aria-valuenow="{{ seconds }}" style="width
-             : {{ seconds }}%;"> {{ seconds | timerTime }}
+             : {{ (seconds / $parent.activePart.questionDuration) * 100 }}%;"> {{ seconds | timerTime }}
             <span class="sr-only">Amount of time for each question.</span>
         </div>
 
