@@ -7,16 +7,16 @@
 
 </div>
 
-<timer ng-show="timerRunning || timerPaused" finish-callback="goToNextQuestion()" interval="1000" autostart="false"
+<timer ng-show="timerRunning || timerPaused" finish-callback="goToNextQuestionNumber()" interval="1000"
+       autostart="false"
        countdown="activePart.questionDuration"
        max-time-unit="'second'">
     <div class="progress">
         <div class="progress-bar progress-bar"
              aria-valuemin="0" aria-valuemax="questionTimer" aria-valuenow="{{ seconds }}" style="width
-             : {{ (seconds / $parent.activePart.questionDuration) * 100 }}%;"> {{ seconds | timerTime }}
+             : {{ (seconds / $parent.activePart.questionDuration) * 100 }}%;">{{ seconds | timerTime }}
             <span class="sr-only">Amount of time for each question.</span>
         </div>
-
     </div>
 </timer>
 

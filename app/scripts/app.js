@@ -38,7 +38,7 @@ function PartsCtrl($scope) {
                 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197,
                 198, 199, 200],
             timerDuration: 54 * 60,
-            questionDuration: 75
+            questionDuration: 55
         },
         {
             name: 'all parts',
@@ -48,11 +48,18 @@ function PartsCtrl($scope) {
                 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193,
                 194, 195, 196, 197, 198, 199, 200],
             timerDuration: 75 * 60,
-            questionDuration: 75
+            questionDuration: 75.757575757576
+        },
+        {
+            name: 'test part',
+            questionNumbers: [1, 2, 3],
+            timerDuration: 30,
+            questionDuration: 10
         }
     ];
 
     $scope.activePart = $scope.parts[0];
+    $scope.currentQuestionNumber = $scope.parts[0].questionNumbers[0];
     $scope.timerRunning = false;
     $scope.timerPaused = false;
 
@@ -80,9 +87,14 @@ function PartsCtrl($scope) {
     };
 
     $scope.resetTimer = function (){
-        $scope.$broadcast('timer-reset');
+        $scope.$broadcast('timer-set-countdown');
+        $scope.currentQuestionNumber = $scope.activePart.questionNumbers[0];
         $scope.timerRunning = false;
         $scope.timerPaused = false;
+    };
+
+    $scope.resetQuestionTimer = function () {
+        $scope.$broadcast('timer-start');
     };
 
     // switches between start and stop timer functions if
@@ -114,8 +126,19 @@ function PartsCtrl($scope) {
 
     // allows the question numbers to change after
     // the questionDuration for a question reaches zero(0) seconds
-    $scope.goToNextQuestionNumber = function(index) {
-        $scope.currentQuestionNumber = $scope.parts[index].questionNumbers[index];
+    $scope.goToNextQuestionNumber = function() {
+        $scope.$apply(function() {
+            var lastQuestionNumber = $scope.currentQuestionNumber === $scope.activePart.questionNumbers[$scope.activePart.questionNumbers.length - 1];
+
+            if (lastQuestionNumber) {
+                $scope.resetTimer();
+                $('#myModal').modal({backdrop: 'static'});
+            }
+            else {
+                $scope.resetQuestionTimer();
+                $scope.currentQuestionNumber = $scope.currentQuestionNumber + 1;
+            }
+        });
     };
 }
 
