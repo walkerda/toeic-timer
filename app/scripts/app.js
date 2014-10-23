@@ -9,6 +9,10 @@
  * Main module of the application.
  */
 
+$(function() {
+  $('.btn-tooltip').tooltip('container: body');
+});
+
 // PartsCtrl function that's passed into the PartsCtrl
 function PartsCtrl($scope) {
     // provides all the details for each part
@@ -62,11 +66,13 @@ function PartsCtrl($scope) {
     $scope.currentQuestionNumber = $scope.parts[0].questionNumbers[0];
     $scope.timerRunning = false;
     $scope.timerPaused = false;
+    $scope.timerActive = false;
 
     // sets the active part and resets the timer
     $scope.setPart = function(index) {
         $scope.activePart = $scope.parts[index];
         $scope.resetTimer();
+        $scope.timerActive = true;
     };
 
     $scope.isSet = function(index) {

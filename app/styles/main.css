@@ -1,135 +1,215 @@
-/* Space out content a bit */
-body {
-  padding-top: 0px;
-  padding-bottom: 20px;
-}
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.timer-location,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
+/* Small Screens < 768px */
 
-/* Custom page header */
-header {
-    border-bottom: 1px solid #e5e5e5;
-    padding-top: 0;
-}
+@media screen and (max-width: 768px) {
+  /* Nav Menu */
+  .large-screens {
+    display: none;
+  }
 
-.question-box {
-    border: 2px solid black;
-    height: 90px;
-    text-align: center;
-    /*padding: 10px;*/
-    color: #000000;
-}
-
-.question-box-number {
-    font-size: 50px;
-    text-align: center;
-    margin: -5px;
-}
-
-.timerbar {
-    height: 90px;
-}
-
-#navbar-menu-overlay {
+  #navbar-menu-overlay {
     font-size: 20px;
     color: white;
-    background-color: dimgrey;
+    background-color: #128f76;
     text-align: center;
     margin-top: -8px;
-}
+  }
 
-.timer-countdown {
-    font-size: 100px;
-}
+  .navbar-header {
+    padding-right: 6px;
+    padding-left: 6px;
+  }
 
-.timer-location {
+  .glyphicon-play, .glyphicon-pause, .glyphicon-repeat {
+    font-size: 40px;
+    color: white;
+  }
+
+  .navbar-toggle .icon-bar {
+    margin: auto;
+    height: 5px;
+    width: 32px;
+  }
+
+  .btn {
+    height: 70px;
+  }
+
+  .play-pause-btn, .reset-btn {
+    background-color: transparent;
+    border: 1px solid #128f76;
+  }
+
+  .play-pause-btn:hover, .reset-btn:hover {
+    background-color: #128F76;
+  }
+
+  /* Question Box */
+  .question-box {
+    border: 1px solid #2c3e50;
+    height: 90px;
     text-align: center;
-    margin: 25% 0 25% 0;
-}
+    padding: 0;
+    margin: 0;
+  }
 
-.progress {
+  .question-box-number {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 8px;
+    padding-right: 5px;
+  }
+
+  /* Timerbar */
+  .timerbar {
+    height: 90px;
+  }
+
+  .progress {
     height: 90px;
     border-radius: 0;
     padding-left: 0;
     padding-right: 0;
-}
+  }
 
-.btn {
-    height: 70px;
-}
 
-.navbar-header {
-    padding-right: 6px;
-    padding-left: 6px;
-}
 
-.glyphicon-play, .glyphicon-pause, .glyphicon-repeat {
-    font-size: 40px;
-}
+  /* Timer */
+  .timer-countdown {
+    font-size: 100px;
+  }
 
-.navbar-toggle .icon-bar {
-    margin: auto;
-    height: 5px;
-    width: 32px;
-}
+  .timer-location {
+    text-align: center;
+    margin: 30% 0 30% 0;
+  }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
+  /* Timer Finished Modal */
+  .timer-end-modal-vertical-centered {
+    transform: translate(0, 50%) !important;
+    -ms-transform: translate(0, 50%) !important; /* IE 9 */
+    -webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
+  }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
+  .timer-end-modal-header {
+    background-color: #e74c3c;
+  }
+
+  .modal-title {
+    text-align: center;
+  }
+
+  .timer-end-modal-btn {
+    height: 45px;
+  }
+
+  /* Help Modal */
+
+  .help-modal-header {
+    background-color: #128F76;
+  }
+
+  .help-modal-btn {
+    height: 45px;
+    background-color: #128F76;
+    border-color: #128F76;
   }
 }
-.container-narrow > hr {
-  margin: 30px 0;
-}
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
 
-/* Supporting marketing content */
-/*.timer-location {*/
-  /*margin: 40px 0;*/
-/*}*/
-.timer-location p + h4 {
-  margin-top: 28px;
-}
 
-/* Responsive: Portrait tablets and up */
+
+/* Large Screens > 768px */
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .timer-location,
-  .footer {
+  .small-screens {
+    display: none;
+  }
+
+  /* Nav Menu */
+
+  .container-fluid {
+    height: 100px;
+  }
+
+  .glyphicon-play, .glyphicon-pause, .glyphicon-repeat {
+    font-size: 40px;
+    color: white;
+  }
+
+  .play-pause-btn, .reset-btn, .part5-btn, .part6-btn, .part7-btn, .allparts-btn, .testpart-btn {
+    background-color: transparent;
+    border: 1px solid #128f76;
+    height: 90px;
+    width: 150px;
+    color: white;
+    font-size: 20px;
+  }
+
+  .play-pause-btn:hover, .reset-btn:hover, .part5-btn:hover,
+  .part6-btn:hover, .part7-btn:hover, .allparts-btn:hover, .testpart-btn:hover {
+    background-color: #128F76;
+  }
+
+  /* Timerbar */
+  .timerbar {
+    height: 100px;
+  }
+
+  .progress {
+    height: 100px;
+    border-radius: 0;
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
+
+  /* Timer */
+  .timer-countdown {
+    font-size: 200px;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+
+  .timer-location {
+    text-align: center;
+    margin-top: 7%;
+  }
+
+  .activePart-title {
+    font-size: 40px;
+  }
+
+  /* Question Box */
+  .question-box {
+    border: 1px solid #2c3e50;
+    height: 100px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .question-box-number {
+    font-size: 75px;
+    text-align: center;
+    margin-top: -10px;
+    padding-right: 5px;
+  }
+
+  /* Timer Finished Modal */
+  .timer-end-modal-vertical-centered {
+    transform: translate(0, 50%) !important;
+    -ms-transform: translate(0, 50%) !important; /* IE 9 */
+    -webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
+  }
+
+  .timer-end-modal-header {
+    background-color: #e74c3c;
+  }
+
+  .modal-title {
+    text-align: center;
+  }
+
+  .timer-end-modal-btn {
+    height: 45px;
   }
 }
+
 
