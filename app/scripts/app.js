@@ -127,7 +127,7 @@ function PartsCtrl($scope) {
 
         $(document).on('click',function(){
             $('.collapse').collapse('hide');
-        })
+        });
     };
 
     // allows the question numbers to change after
@@ -156,10 +156,10 @@ function timerTime() {
         var tick = time;
         var mins = Math.floor(tick / 60);
         var secs = tick % 60;
-        var tock = (mins < 10 ? "0" : "" ) + mins + ":" + (secs < 10 ? "0" : "" ) + secs;
+        var tock = (mins < 10 ? '0' : '' ) + mins + ':' + (secs < 10 ? '0' : '' ) + secs;
 
         return tock;
-    }
+    };
 }
 
 // angular app setup
