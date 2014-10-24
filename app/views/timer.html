@@ -21,7 +21,7 @@
 <div class="container">
   <div class="row timer-location">
     <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="timer-countdown" data-toggle="tooltip" title="Timer Countdown" data-placement="right">
+      <div class="timer-countdown" data-toggle="tooltip" title="Timer Countdown" data-placement="below">
         <timer ng-show="timerRunning || timerPaused" interval="1000" autostart="false"
                countdown="activePart.timerDuration"
                max-time-unit="'minute'">
@@ -32,7 +32,7 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 title-div">
-      <div class="activePart-title" data-toggle="tooltip" title="Selected Test Part" data-placement="right">
+      <div class="activePart-title" data-toggle="tooltip" title="Selected Test Part" data-placement="below">
         {{activePart.name |uppercase }}</div>
     </div>
   </div>
