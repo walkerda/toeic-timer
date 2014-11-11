@@ -136,8 +136,8 @@ function timerTime() {
 
 angular
   .module('toeicTimerApp', ['timer'])
-  .controller('PartsCtrl', PartsCtrl)
-  .filter('timerTime', timerTime);
+  .controller('PartsCtrl', ['$scope', PartsCtrl])
+  .filter('timerTime', [timerTime]);
 
 $(function() {
   setTimeout(function(){$('[data-toggle="tooltip"]').tooltip({container: 'body'});}, 1000);
